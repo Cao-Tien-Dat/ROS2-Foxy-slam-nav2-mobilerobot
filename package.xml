@@ -4,7 +4,7 @@
   <name>bena</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="caotiendat9121.thd2017@gmail.com@email.com">Datcao</maintainer>
+  <maintainer email="caotiendat91211.thd2017@email.com">DatCao</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
