@@ -63,3 +63,4 @@ def generate_launch_description():
         slam_toolbox_launch,  
         rviz2_launch,  
         nav2_launch, 
+ ])
