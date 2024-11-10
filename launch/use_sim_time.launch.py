@@ -1,40 +1,66 @@
 import os
-
-from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription, ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-    # Bao gom file launch robot_state_publisher cung cap boi package cua minh. Bat buoc phai kich hoat sim time.
-    # !!! HAY DAM BAO DA DAT DUNG TEN PACKAGE !!!
-    
-    package_name = 'bena'  # <-- DOI TEN PACKAGE TAI DAY
+    package_name = 'bena'
 
-    # Bao gom launch file robot_state_publisher
+    # Bao gồm launch file robot_state_publisher
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory(package_name), 'launch', 'rsp.launch.py'
         )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
-    # Bao gom launch file Gazebo tu package gazebo_ros
+    # Bao gồm launch file Gazebo từ package gazebo_ros
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
     )
 
-    # Khoi dong node spawn_entity tu package gazebo_ros. Ten entity khong quan trong neu chi co mot robot.
+    # Khởi động node spawn_entity từ package gazebo_ros
     spawn_entity = Node(
         package='gazebo_ros', executable='spawn_entity.py',
         arguments=['-topic', 'robot_description', '-entity', 'bena'],
         output='screen'
     )
 
-    # Khoi dong tat ca cac thanh phan tren
+    # Xử lý đường dẫn cho params_file của SLAM Toolbox
+    params_file_path = os.path.expanduser('~/dev_ws/src/bena/config/mapper_params_online_async.yaml')
+
+    # Thêm ExecuteProcess để gọi lệnh ros2 launch SLAM Toolbox
+    slam_toolbox_launch = ExecuteProcess(
+        cmd=['ros2', 'launch', 'slam_toolbox', 'online_async_launch.py', 
+             f'params_file:={params_file_path}', 'use_sim_time:=true'],
+        output='screen'
+    )
+
+    # Xử lý đường dẫn cho RViz2
+    rviz2_config_path = os.path.expanduser('~/dev_ws/src/bena/config/map.rviz')
+
+    #  gọi RViz2 với file cấu hình map.rviz
+    rviz2_launch = ExecuteProcess(
+        cmd=['rviz2', '-d', rviz2_config_path],
+        output='screen'
+    )
+
+
+    #  gọi lệnh ros2 launch nav2_bringup navigation_launch.py
+  
+    nav2_launch = ExecuteProcess(
+        cmd=['ros2', 'launch', 'nav2_bringup', 'navigation_launch.py', 'use_sim_time:=true'],
+        output='screen'
+    )
+
+    # Khởi động tất cả các thành phần trên
     return LaunchDescription([
-        rsp,           # Launch robot_state_publisher
-        gazebo,        # Launch Gazebo
-        spawn_entity,  # Khoi tao robot trong Gazebo
+        rsp,  
+        gazebo,  
+        spawn_entity,  
+        slam_toolbox_launch,  
+        rviz2_launch,  
+        nav2_launch,  # Khởi động Navigation2
     ])
