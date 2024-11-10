@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+   
+    <gazebo>
+        <!-- Khai bao plugin diff_drive, duoc su dung de mo phong he thong lai 2 banh -->
+        <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+
+            <!-- thong tin banh xe -->
+            <left_joint>khop_banh_trai</left_joint>  
+            <right_joint>khop_banh_phai</right_joint>
+            <wheel_separation>0.35</wheel_separation>
+            <wheel_diameter>0.1</wheel_diameter>
+
+            <!-- Gioi han -->
+            
+            <max_wheel_torque>200</max_wheel_torque> <!-- Mo-men xoan toi da cua moi banh xe -->
+            <max_wheel_acceleration>10.0</max_wheel_acceleration>    <!-- Gia toc toi da cua moi banh xe -->
+
+            <!-- Thong tin dau ra -->
+            <odometry_frame>odom</odometry_frame> <!-- Frame cho odometry, cho phan theo doi vi tri cua robot -->
+            <robot_base_frame>base_link</robot_base_frame> <!-- Frame cho robot base, thuc chat la 'base_link' -->        
+            <publish_odom>true</publish_odom>    <!-- Xuat thong tin odometry ra -->   
+            <publish_odom_tf>true</publish_odom_tf>        <!-- Xuat transform (tf) odometry -->      
+            <publish_wheel_tf>true</publish_wheel_tf>     <!-- Xuat transform (tf) anh xe -->
+
+        </plugin>
+    </gazebo>
+
+</robot>
