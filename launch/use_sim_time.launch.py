@@ -62,5 +62,4 @@ def generate_launch_description():
         spawn_entity,  
         slam_toolbox_launch,  
         rviz2_launch,  
-        nav2_launch,  # Khởi động Navigation2
-    ])
+        nav2_launch, 
