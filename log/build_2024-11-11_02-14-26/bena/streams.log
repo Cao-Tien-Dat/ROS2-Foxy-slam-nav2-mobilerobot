@@ -1,0 +1,69 @@
+[0.015s] Invoking command in '/home/datcao/dev_ws/src/bena/build/bena': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/datcao/dev_ws/src/bena -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/datcao/dev_ws/src/bena/install/bena
+[0.443s] -- The C compiler identification is GNU 9.4.0
+[1.345s] -- The CXX compiler identification is GNU 9.4.0
+[1.374s] -- Check for working C compiler: /usr/bin/cc
+[1.574s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.577s] -- Detecting C compiler ABI info
+[1.680s] -- Detecting C compiler ABI info - done
+[1.688s] -- Detecting C compile features
+[1.689s] -- Detecting C compile features - done
+[1.693s] -- Check for working CXX compiler: /usr/bin/c++
+[1.774s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.776s] -- Detecting CXX compiler ABI info
+[1.862s] -- Detecting CXX compiler ABI info - done
+[1.871s] -- Detecting CXX compile features
+[1.872s] -- Detecting CXX compile features - done
+[1.901s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[1.933s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.933s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.124s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.171s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[2.273s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.303s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.304s] -- Configured cppcheck include dirs: 
+[2.304s] -- Configured cppcheck exclude dirs and/or files: 
+[2.310s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.310s] -- Configured cpplint exclude dirs and/or files: 
+[2.313s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.317s] -- Added test 'lint_cmake' to check CMake code style
+[2.320s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[2.326s] -- Added test 'uncrustify' to check C / C++ code style
+[2.326s] -- Configured uncrustify additional arguments: 
+[2.328s] -- Added test 'xmllint' to check XML markup files
+[2.338s] -- Configuring done
+[2.348s] -- Generating done
+[2.352s] -- Build files have been written to: /home/datcao/dev_ws/src/bena/build/bena
+[2.359s] Invoked command in '/home/datcao/dev_ws/src/bena/build/bena' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/datcao/dev_ws/src/bena -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/datcao/dev_ws/src/bena/install/bena
+[2.360s] Invoking command in '/home/datcao/dev_ws/src/bena/build/bena': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/datcao/dev_ws/src/bena/build/bena -- -j2 -l2
+[2.393s] Invoked command in '/home/datcao/dev_ws/src/bena/build/bena' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/datcao/dev_ws/src/bena/build/bena -- -j2 -l2
+[2.421s] Invoking command in '/home/datcao/dev_ws/src/bena/build/bena': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/datcao/dev_ws/src/bena/build/bena
+[2.429s] -- Install configuration: ""
+[2.430s] -- Execute custom install script
+[2.430s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/config/empty.yaml
+[2.440s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/config/map.rviz
+[2.449s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/config/mapper_params_online_async.yaml
+[2.456s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/bena.urdf.xacro
+[2.463s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/bena_core.xacro
+[2.470s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/gazebo_control.xacro
+[2.477s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/lidar.xacro
+[2.490s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/quan_tinh.xacro
+[2.507s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/launch/move.py
+[2.515s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/launch/rsp.launch.py
+[2.522s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/launch/use_sim_time.launch.py
+[2.530s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/worlds/empty.world
+[2.540s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/ament_index/resource_index/package_run_dependencies/bena
+[2.548s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/ament_index/resource_index/parent_prefix_path/bena
+[2.556s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/environment/ament_prefix_path.sh
+[2.563s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/environment/ament_prefix_path.dsv
+[2.572s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/environment/path.sh
+[2.579s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/environment/path.dsv
+[2.589s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/local_setup.bash
+[2.596s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/local_setup.sh
+[2.604s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/local_setup.zsh
+[2.611s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/local_setup.dsv
+[2.619s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/package.dsv
+[2.626s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/ament_index/resource_index/packages/bena
+[2.634s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/cmake/benaConfig.cmake
+[2.643s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/cmake/benaConfig-version.cmake
+[2.651s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/package.xml
+[2.659s] Invoked command in '/home/datcao/dev_ws/src/bena/build/bena' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/datcao/dev_ws/src/bena/build/bena

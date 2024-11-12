@@ -1,0 +1,32 @@
+[0.048s] Invoking command in '/home/datcao/dev_ws/src/bena/build/bena': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/datcao/dev_ws/src/bena/build/bena -- -j2 -l2
+[0.115s] Invoked command in '/home/datcao/dev_ws/src/bena/build/bena' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/datcao/dev_ws/src/bena/build/bena -- -j2 -l2
+[0.147s] Invoking command in '/home/datcao/dev_ws/src/bena/build/bena': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/datcao/dev_ws/src/bena/build/bena
+[0.155s] -- Install configuration: ""
+[0.156s] -- Execute custom install script
+[0.157s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/config/empty.yaml
+[0.157s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/config/map.rviz
+[0.157s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/config/mapper_params_online_async.yaml
+[0.158s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/bena.urdf.xacro
+[0.158s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/bena_core.xacro
+[0.158s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/gazebo_control.xacro
+[0.158s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/lidar.xacro
+[0.159s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/description/quan_tinh.xacro
+[0.159s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/launch/rsp.launch.py
+[0.159s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/launch/use_sim_time.launch.py
+[0.159s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/worlds/empty.world
+[0.160s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/ament_index/resource_index/package_run_dependencies/bena
+[0.160s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/ament_index/resource_index/parent_prefix_path/bena
+[0.160s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/environment/ament_prefix_path.sh
+[0.161s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/environment/ament_prefix_path.dsv
+[0.161s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/environment/path.sh
+[0.161s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/environment/path.dsv
+[0.162s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/local_setup.bash
+[0.162s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/local_setup.sh
+[0.163s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/local_setup.zsh
+[0.163s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/local_setup.dsv
+[0.163s] -- Symlinking: /home/datcao/dev_ws/src/bena/install/bena/share/bena/package.dsv
+[0.172s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/ament_index/resource_index/packages/bena
+[0.172s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/cmake/benaConfig.cmake
+[0.172s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/cmake/benaConfig-version.cmake
+[0.172s] -- Up-to-date symlink: /home/datcao/dev_ws/src/bena/install/bena/share/bena/package.xml
+[0.174s] Invoked command in '/home/datcao/dev_ws/src/bena/build/bena' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/datcao/dev_ws/src/bena/build/bena

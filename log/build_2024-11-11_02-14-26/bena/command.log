@@ -1,0 +1,6 @@
+Invoking command in '/home/datcao/dev_ws/src/bena/build/bena': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/datcao/dev_ws/src/bena -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/datcao/dev_ws/src/bena/install/bena
+Invoked command in '/home/datcao/dev_ws/src/bena/build/bena' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /home/datcao/dev_ws/src/bena -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/datcao/dev_ws/src/bena/install/bena
+Invoking command in '/home/datcao/dev_ws/src/bena/build/bena': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/datcao/dev_ws/src/bena/build/bena -- -j2 -l2
+Invoked command in '/home/datcao/dev_ws/src/bena/build/bena' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/datcao/dev_ws/src/bena/build/bena -- -j2 -l2
+Invoking command in '/home/datcao/dev_ws/src/bena/build/bena': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/datcao/dev_ws/src/bena/build/bena
+Invoked command in '/home/datcao/dev_ws/src/bena/build/bena' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/datcao/dev_ws/src/bena/build/bena

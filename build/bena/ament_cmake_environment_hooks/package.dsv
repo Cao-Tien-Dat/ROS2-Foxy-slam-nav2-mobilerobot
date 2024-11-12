@@ -1,0 +1,4 @@
+source;share/bena/local_setup.bash
+source;share/bena/local_setup.dsv
+source;share/bena/local_setup.sh
+source;share/bena/local_setup.zsh
