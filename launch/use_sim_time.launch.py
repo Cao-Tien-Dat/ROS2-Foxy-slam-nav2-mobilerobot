@@ -15,10 +15,16 @@ def generate_launch_description():
         )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
-    # Bao gồm launch file Gazebo từ package gazebo_ros
+    # Thiết lập đường dẫn chính xác cho world 'home.world'
+    gazebo_world_path = os.path.join(
+        get_package_share_directory('bena'), 'worlds', 'home.world'
+    )
+
+    # Bao gồm launch file gazebo với world được chỉ định
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
+        launch_arguments={'world': gazebo_world_path}.items()
     )
 
     # Khởi động node spawn_entity từ package gazebo_ros
@@ -29,7 +35,7 @@ def generate_launch_description():
     )
 
     # Xử lý đường dẫn cho params_file của SLAM Toolbox
-    params_file_path = os.path.expanduser('~/dev_ws/src/bena/config/mapper_params_online_async.yaml')
+    params_file_path = os.path.expanduser('~/ros2_ws/src/bena/config/mapper_params_online_async.yaml')
 
     # Thêm ExecuteProcess để gọi lệnh ros2 launch SLAM Toolbox
     slam_toolbox_launch = ExecuteProcess(
@@ -39,17 +45,15 @@ def generate_launch_description():
     )
 
     # Xử lý đường dẫn cho RViz2
-    rviz2_config_path = os.path.expanduser('~/dev_ws/src/bena/config/map.rviz')
+    rviz2_config_path = os.path.expanduser('~/ros2_ws/src/bena/config/map.rviz')
 
-    #  gọi RViz2 với file cấu hình map.rviz
+    # Gọi RViz2 với file cấu hình map.rviz
     rviz2_launch = ExecuteProcess(
         cmd=['rviz2', '-d', rviz2_config_path],
         output='screen'
     )
 
-
-    #  gọi lệnh ros2 launch nav2_bringup navigation_launch.py
-  
+    # Gọi lệnh ros2 launch nav2_bringup navigation_launch.py
     nav2_launch = ExecuteProcess(
         cmd=['ros2', 'launch', 'nav2_bringup', 'navigation_launch.py', 'use_sim_time:=true'],
         output='screen'
@@ -63,4 +67,4 @@ def generate_launch_description():
         slam_toolbox_launch,  
         rviz2_launch,  
         nav2_launch, 
- ])
+    ])
