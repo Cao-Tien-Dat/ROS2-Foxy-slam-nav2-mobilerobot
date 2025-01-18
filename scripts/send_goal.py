@@ -8,10 +8,10 @@ from time import sleep
 from geometry_msgs.msg import PoseStamped
 import subprocess
 
-class FrontierExplorer(Node):
+class GoalExplorer(Node):
 
     def __init__(self):
-        super().__init__('frontier_explorer')
+        super().__init__('goal_explorer')
 
         self.create_action_client()
         self._map_subscriber = self.create_subscription(
@@ -23,7 +23,7 @@ class FrontierExplorer(Node):
         
         self.latest_map_data = None
         self.goal_in_progress = False
-        self.frontier_points = []
+        self.goal_points = []
         self.goal_handle = None
         self.error_count = 0  # Đếm số lần lỗi liên tiếp
         self.error_threshold = 1  # Ngưỡng lỗi để khởi động lại server
@@ -58,56 +58,56 @@ class FrontierExplorer(Node):
         self.get_logger().info("Received updated map.")
         
         if not self.goal_in_progress:
-            self.find_and_send_frontier_goal()
+            self.find_and_send_goal()
 
-    def find_and_send_frontier_goal(self):
+    def find_and_send_goal(self):
         """
-        Tìm frontier (vùng chưa được khám phá) và gửi mục tiêu đến Nav2.
+        Tìm điểm goal và gửi mục tiêu đến Nav2.
         """
         if not self.latest_map_data:
             self.get_logger().warn("Map data not available.")
             return
 
-        self.frontier_points = list(self.find_frontier(self.latest_map_data))
+        self.goal_points = list(self.find_goal(self.latest_map_data))
 
-        if not self.frontier_points:
-            self.get_logger().info("No frontier detected.")
+        if not self.goal_points:
+            self.get_logger().info("No goal detected.")
             return
 
-        self.get_logger().info(f"Found {len(self.frontier_points)} frontier points.")
+        self.get_logger().info(f"Found {len(self.goal_points)} goal points.")
         self.send_next_goal()
 
-    def find_frontier(self, map_data):
+    def find_goal(self, map_data):
         """
-        Tìm các điểm frontier từ bản đồ.
+        Tìm các điểm goal từ bản đồ.
         """
         num_repeats_per_quadrant = 20
         quadrants = [1, 2, 3, 4]
 
         def generate_point_in_quadrant(quadrant):
             if quadrant == 1:
-                frontier_x = random.randint(0, 8)
-                frontier_y = random.randint(0, 8)
+                goal_x = random.randint(0, 8)
+                goal_y = random.randint(0, 8)
             elif quadrant == 2:
-                frontier_x = random.randint(-8, 0)
-                frontier_y = random.randint(0, 8)
+                goal_x = random.randint(-8, 0)
+                goal_y = random.randint(0, 8)
             elif quadrant == 3:
-                frontier_x = random.randint(-8, 0)
-                frontier_y = random.randint(-8, 0)
+                goal_x = random.randint(-8, 0)
+                goal_y = random.randint(-8, 0)
             else:
-                frontier_x = random.randint(0, 8)
-                frontier_y = random.randint(-8, 0)
-            return frontier_x, frontier_y
+                goal_x = random.randint(0, 8)
+                goal_y = random.randint(-8, 0)
+            return goal_x, goal_y
 
         for quadrant in range(1, 5):
             for _ in range(num_repeats_per_quadrant):
-                frontier_x, frontier_y = generate_point_in_quadrant(quadrant)
-                self.get_logger().info(f"Checking quadrant {quadrant} with point at x={frontier_x}, y={frontier_y}")
-                yield frontier_x, frontier_y
+                goal_x, goal_y = generate_point_in_quadrant(quadrant)
+                self.get_logger().info(f"Checking quadrant {quadrant} with point at x={goal_x}, y={goal_y}")
+                yield goal_x, goal_y
 
     def is_valid_goal(self, x, y):
         """
-        Kiểm tra tính khả thi của một điểm frontier.
+        Kiểm tra tính khả thi của một điểm goal.
         """
         if not self.latest_map_data:
             return False
@@ -131,21 +131,20 @@ class FrontierExplorer(Node):
 
     def send_next_goal(self):
         """
-        Gửi mục tiêu tiếp theo trong danh sách frontier.
+        Gửi mục tiêu tiếp theo trong danh sách goal.
         """
-        if not self.frontier_points:
-            self.get_logger().info("No frontier points left to send.")
+        if not self.goal_points:
+            self.get_logger().info("No goal points left to send.")
             return
 
-        frontier_x, frontier_y = self.frontier_points.pop(0)
+        goal_x, goal_y = self.goal_points.pop(0)
 
-        if frontier_x is not None and frontier_y is not None and self.is_valid_goal(frontier_x, frontier_y):
-            self.send_goal(frontier_x, frontier_y)
+        if goal_x is not None and goal_y is not None and self.is_valid_goal(goal_x, goal_y):
+            self.send_goal(goal_x, goal_y)
             sleep(1)  # Thêm độ trễ giữa các lần gửi mục tiêu
         else:
-            self.get_logger().info(f"Goal at x={frontier_x}, y={frontier_y} is not valid. Skipping.")
+            self.get_logger().info(f"Goal at x={goal_x}, y={goal_y} is not valid. Skipping.")
             self.send_next_goal()
-
 
     def send_goal(self, x, y):
         """
@@ -191,7 +190,6 @@ class FrontierExplorer(Node):
         result_future = goal_handle.get_result_async()
         result_future.add_done_callback(self.result_callback)
 
-
     def result_callback(self, future):
         """
         Callback khi Nav2 hoàn thành điểm đến.
@@ -205,7 +203,7 @@ class FrontierExplorer(Node):
         self.send_next_goal()
 
     def restart_controller_server(self):
-        """n
+        """
         Tái khởi động controller_server nếu gặp lỗi quá số lần cho phép.
         """
         self.get_logger().info("Restarting controller server due to consecutive errors...")
@@ -215,8 +213,8 @@ class FrontierExplorer(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    frontier_explorer = FrontierExplorer()
-    rclpy.spin(frontier_explorer)
+    goal_explorer = GoalExplorer()
+    rclpy.spin(goal_explorer)
     rclpy.shutdown()
 
 if __name__ == '__main__':
